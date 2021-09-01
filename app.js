@@ -16,8 +16,12 @@ const vm = new Vue({
         color: 'red',
         visible: false,
         todos: ['Eat', 'Sleep', 'Rave', 'Repeat'],
+        firstName: 'Jaskanwal',
+        lastName: 'Singh',
         rawHtml: `<h1 style="color: lightseagreen;">Oh Yeahhhhh</h1>`,
         href: 'href',
+        activeClass: 'active',
+        errorClass: 'text-danger',
         link: {
             attributeName: 'href',
             url: 'https://www.google.com'
@@ -28,15 +32,30 @@ const vm = new Vue({
         returnReverseMessage: function () {
             return this.name.split('').reverse().join('')
         },
+        fullName: {
+            // getter
+            get: function () {
+              return this.firstName + ' ' + this.lastName
+            },
+            // setter
+            set: function (newValue) {
+              var names = newValue.split(' ')
+              this.firstName = names[0]
+              this.lastName = names[names.length - 1]
+            }
+        }
     },
     methods: {
         reverseMessage: function() {
             console.log(this);
-            debugger;
-            this.name = this.returnReverseMessage();
+            this.name = this.name.split('').reverse().join('');
         },
         toggleVisibility: function() {
             this.visible = !this.visible;
+        },
+        changeName: function() {
+            this.fullName = 'Gaitri Bharadwaj'
+            console.log(this.firstName);
         }
     },
     // created: function() {

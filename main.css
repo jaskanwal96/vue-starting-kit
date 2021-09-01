@@ -1,9 +1,19 @@
 body {
-  font-size: 22px;
   margin: 16px;
+  max-width: 80vw;
 }
 
 input[type="text"] {
   margin: 10px 0;
   display: block;
+}
+
+.active {
+  padding: 8px;
+  background-color: lightskyblue;
+  text-align: center;
+}
+
+.text-danger {
+  color: lightslategray;
 }

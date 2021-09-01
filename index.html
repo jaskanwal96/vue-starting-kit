@@ -20,6 +20,7 @@
       <div v-bind:style="{color}">Testing color</div>
 
 // ng-for Directive
+prefer v-show if you need to toggle something very often, and prefer v-if if the condition is unlikely to change at runtime.
       <ul>
         <todo-item 
           v-for="(todo, index) in todos"
@@ -35,14 +36,19 @@
 
 // Two Way Binding
       <input v-model="name">
-      {{returnReverseMessage()}}
-
       <p>Using mustaches: {{ rawHtml }}</p>
-      {{returnReverseMessage()}}
       <p>Using v-html directive: <div v-html="rawHtml"></div></p>
 
 // Dynamic Arguments Vue2.6.0+
       <a v-bind:[href]='link.url' target="__blank"> Click Me </a>
+
+// Computed Variables using computed methods
+      {{returnReverseMessage}}
+      {{fullName}}
+      <button @click="changeName">Change Name</button>
+
+// Class Binding
+      <div v-bind:class="[visible ? errorClass: '', activeClass]">What's my class?</div>
     </pre>
   </div>
 
