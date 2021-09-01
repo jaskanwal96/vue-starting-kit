@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>VueJS Course</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <div id="app">
+    <pre>
+// Binding
+      <div v-bind:title="name">OOOOh</div>
+      <div :title="name">OOOOh</div>
+
+//String Interpolation
+      <div>{{name}}</div>
+
+//Style Binding
+      <div v-bind:style="{color}">Testing color</div>
+
+// ng-for Directive
+      <ul>
+        <todo-item 
+          v-for="(todo, index) in todos"
+          v-bind:todo="todo"
+          v-bind:key="index"
+          v-if="visible"
+        ></todo-item>
+      </ul>
+
+// Event Binding
+      <button v-on:click="toggleVisibility">Toggle Visibility</button>
+      <button @click="reverseMessage" v-bind:disabled="visible">Reverse Message</button>
+
+// Two Way Binding
+      <input v-model="name">
+      {{returnReverseMessage()}}
+
+      <p>Using mustaches: {{ rawHtml }}</p>
+      {{returnReverseMessage()}}
+      <p>Using v-html directive: <div v-html="rawHtml"></div></p>
+
+// Dynamic Arguments Vue2.6.0+
+      <a v-bind:[href]='link.url' target="__blank"> Click Me </a>
+    </pre>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
