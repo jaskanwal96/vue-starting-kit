@@ -22,6 +22,8 @@ const vm = new Vue({
         href: 'href',
         activeClass: 'active',
         errorClass: 'text-danger',
+        sets: [[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]],
+        numbers: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
         link: {
             attributeName: 'href',
             url: 'https://www.google.com'
@@ -31,6 +33,11 @@ const vm = new Vue({
     computed: {
         returnReverseMessage: function () {
             return this.name.split('').reverse().join('')
+        },
+        evenNumbers: function () {
+            return this.numbers.filter(function (number) {
+              return number % 2 === 0
+            })
         },
         fullName: {
             // getter
@@ -46,8 +53,10 @@ const vm = new Vue({
         }
     },
     methods: {
+        even: function (numbers) {
+            return numbers.filter(number => number % 2 == 0)
+        },
         reverseMessage: function() {
-            console.log(this);
             this.name = this.name.split('').reverse().join('');
         },
         toggleVisibility: function() {

@@ -49,6 +49,15 @@ prefer v-show if you need to toggle something very often, and prefer v-if if the
 
 // Class Binding
       <div v-bind:class="[visible ? errorClass: '', activeClass]">What's my class?</div>
+
+// Filtered List
+      <ul>
+            <li v-for="n in evenNumbers">{{ n }}</li>
+      </ul>
+      <ul v-for="set in sets">
+            <li v-for="n in even(set)">{{ n }}</li>
+      </ul>
+      
     </pre>
   </div>
 
